@@ -1,25 +1,40 @@
-# DocPilot — MiniGPT en Java
+# DocPilot
 
-Créer **son propre petit modèle de langage** et l'entraîner depuis des poids aléatoires, avec du code Java et un calcul CPU local.
+DocPilot est un projet de modèle de langage développé en Java. Il vise à construire et entraîner un petit Transformer à partir de poids aléatoires, puis à générer du texte avec les paramètres appris.
 
-## Commencer
+L'objectif est de comprendre chaque étape du fonctionnement d'un modèle de langage et de faire évoluer progressivement le projet vers des échanges simples.
 
-Ouvrir `cours/index.html` par double-clic, puis suivre le chapitre 1. Le site fonctionne hors ligne, sans API ni installation. Les liens de référence nécessitent Internet.
+## Objectifs
 
-- `cours/` : 16 chapitres réécrits autour de l'entraînement, exercices, quiz et jalons Git.
-- `projet/` : dossier volontairement vide ; tu y écris le modèle et tu y initialises ton dépôt Git.
-- `cours/corriges/minigpt/` : correction Java exécutable à étudier après les exercices.
+- Préparer un corpus et construire un tokenizer.
+- Implémenter un moteur de différentiation automatique.
+- Construire un Transformer avec attention causale.
+- Entraîner le modèle avec la prédiction du prochain token.
+- Évaluer les résultats sur des données distinctes du corpus d'entraînement.
+- Sauvegarder les poids et générer du texte.
+- Explorer ensuite l'entraînement sur des données de dialogue.
 
-Le parcours couvre corpus, tokenizer Unicode, softmax, entropie croisée, gradients, moteur d'autodiff, embeddings, attention causale, bloc decoder, SGD/Adam, évaluation, génération et checkpoints. Les deux ateliers du site montrent softmax/température et descente de gradient.
+## Approche technique
 
-## Échelle et matériel
+Le premier moteur sera écrit en Java, sans API de génération ni poids préentraînés. Il reposera sur des embeddings entraînables, une attention multi-têtes, un réseau de projections et un optimiseur Adam.
 
-Le modèle de référence est miniature : un bloc, dimension 12, contexte 8 caractères, trois têtes, 2 448 paramètres sur le corpus fourni. Il apprend et génère, mais ne sait pas tenir une conversation utile. L'objectif est de comprendre et démontrer l'entraînement, pas de reproduire les capacités d'un grand assistant.
+La priorité est une implémentation lisible, testable et reproductible. La taille du modèle et ses capacités évolueront à partir des résultats mesurés.
 
-Le relevé local a détecté un Core Ultra 5 325, environ 16 Go de RAM et Intel Graphics, sans NVIDIA. Une première expérience de 100 pas a été compilée et exécutée en Java : les détails et les limites sont dans `VALIDATION.md`. Aucune dépendance ML ou GPU n'est nécessaire pour cette correction.
+## Organisation
 
-## GitHub
+Le développement de l'application se fait dans `projet/`. La documentation de cadrage se trouve dans `projet/docs/objectif.md`.
 
-Chaque chapitre comporte les commandes et vérifications Git. Le dépôt conseillé est dans `projet/` seulement, afin de publier ton code, tes tests et tes résultats. Aucun dépôt distant, commit ou push n'a été créé à ta place. Les fichiers de poids et corpus locaux doivent rester ignorés jusqu'à une publication volontaire et autorisée.
+Le code source, les tests et les rapports d'expériences seront ajoutés au fil du développement.
 
-Le parcours précédent sur un assistant documentaire a été remplacé : ce n'était pas l'objectif demandé.
+## Prérequis
+
+- JDK 21 ou supérieur.
+- Git.
+
+Les commandes de compilation et d'exécution seront documentées avec l'implémentation.
+
+## État du projet
+
+Le projet est en phase de cadrage. Le tokenizer, le moteur d'apprentissage et le modèle restent à implémenter dans ce dépôt.
+
+Il ne s'agit pas encore d'un assistant conversationnel. Les premières versions viseront la génération de texte sur un corpus limité, avant d'aborder le dialogue.

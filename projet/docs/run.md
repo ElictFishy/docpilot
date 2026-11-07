@@ -1,0 +1,1 @@
+Le programme doit fonctionner depuis le terminal, sans IDE. Si javac est absent, le JDK ou son PATH est incomplet. Si la classe est introuvable, vérifie le -d out puis le -cp out. Ne place aucun résultat de test inventé dans run.md.

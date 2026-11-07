@@ -1,0 +1,16 @@
+.env
+.env.*
+!.env.example
+**/target/
+**/out/
+*.class
+*.bin
+**/checkpoints/
+.idea/
+.vscode/
+*.iml
+*.log
+**/uploads/
+**/data/
+.DS_Store
+Thumbs.db

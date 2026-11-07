@@ -1,0 +1,1 @@
+Objectif : apprendre des motifs d’un petit corpus, pas répondre à toutes les questions. Preuves : tests de gradients, baisse de loss sur un jeu fixé et rechargement produisant les mêmes logits. Une génération jolie ne remplace pas ces preuves.
